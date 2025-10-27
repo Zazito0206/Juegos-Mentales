@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #111;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: auto;
+}
+
+/* MODAL */
+#modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+}
+
+#modal h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ff3333;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #990000;
+}
+
+#modal button {
+  margin: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background: #ff0000;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#modal button:hover {
+  background: #990000;
+  color: #fff;
+}
+
+/* EFECTO DE INTERFERENCIA */
+#interferencia {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') center/cover no-repeat;
+  z-index: 20;
+}
+
+/* MENÚ */
+#menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+}
+
+#menu h2 {
+  color: #ff4444;
+  text-shadow: 0 0 10px #ff0000;
+  font-size: 2rem;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.glitch-text {
+  animation: glitchTitle 1s infinite;
+}
+
+@keyframes glitchTitle {
+  0% { text-shadow: 2px 0 red, -2px 0 red; }
+  20% { text-shadow: -2px 0 red, 2px 0 red; }
+  40% { text-shadow: 2px 0 red, -2px 0 red; }
+  60% { text-shadow: -2px 0 red, 2px 0 red; }
+  80% { text-shadow: 2px 0 red, -2px 0 red ; }
+  100% { text-shadow: -2px 0 red, 2px 0 red; }
+}
+
+/* Línea divisoria */
+#menu hr {
+  width: 100%;
+  border: 0;
+  border-top: 2px solid #ff0000;
+  margin-bottom: 1.5rem;
+}
+
+/* Contenedor de botones horizontal con scroll */
+.game-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+/* Tarjeta de juego */
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1a1a1a;
+  border: 2px solid #ff4444;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-width: 200px;
+}
+
+.game-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+}
+
+/* BOTONES GLITCH */
+.glitch-btn {
+  position: relative;
+  width: 90%;
+  background: transparent;
+  border: 2px solid #ff4444;
+  color: #ff4444;
+  font-size: 1.2rem;
+  padding: 0.6rem 0;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.glitch-btn::before,
+.glitch-btn::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  color: #ff0000;
+  background: transparent;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch-btn:hover {
+  animation: pulse 1s infinite alternate;
+  box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05) rotate(-1deg); }
+  100% { transform: scale(1) rotate(1deg); }
+}
+
+.glitch-btn:hover::before {
+  animation: glitchTop 0.3s infinite linear alternate-reverse;
+}
+
+.glitch-btn:hover::after {
+  animation: glitchBottom 0.3s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); transform: translate(-2px,-2px); }
+  50% { clip: rect(5px, 9999px, 15px, 0); transform: translate(2px,2px); }
+  100% { clip: rect(0, 9999px, 0, 0); transform: translate(-2px,-2px); }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); transform: translate(2px,2px); }
+  50% { clip: rect(10px, 9999px, 20px, 0); transform: translate(-2px,-2px); }
+  100% { clip: rect(0, 9999px, 0, 0); transform: translate(2px,2px); }
+}
