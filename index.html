@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juegos Mentales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Modal de bienvenida -->
+  <div id="modal">
+    <h1>¿Estás listo para poner a prueba tu mente?</h1>
+    <div>
+      <button id="btnSi">Sí</button>
+    </div>
+  </div>
+
+  <!-- Interferencia -->
+  <div id="interferencia"></div>
+
+  <!-- Menú principal -->
+  <div id="menu">
+    <h2 class="glitch-text">Selecciona tu juego mental:</h2>
+    <hr>
+    <div class="game-buttons">
+      <div class="game-card">
+        <img src="https://i.pinimg.com/736x/41/29/c6/4129c6d5aba5539f97aa3470920a3322.jpg" alt="Juego 1">
+        <button class="glitch-btn" data-text="Juego 1">Juego 1</button>
+      </div>
+      <div class="game-card">
+        <img src="https://i.pinimg.com/736x/0d/4e/e5/0d4ee502f8974d3a13d6bea24ec3f2bb.jpg" alt="Juego 2">
+        <button class="glitch-btn" data-text="Juego 2">Juego 2</button>
+      </div>
+      <div class="game-card">
+        <img src="https://i.pinimg.com/1200x/bf/f2/47/bff247da9b5b49e7553f2b024902b433.jpg" alt="Juego 3">
+        <button class="glitch-btn" data-text="Juego 3">Juego 3</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="staticSound" src="https://www.soundjay.com/misc/sounds/tv-static-01.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
